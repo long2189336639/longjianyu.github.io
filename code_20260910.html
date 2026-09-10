@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>红色安源 - 传承红色基因</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        :root {
+            --red: #b81616;
+            --dark-red: #8c0f0f;
+            --gold: #d4af37;
+            --light: #f8f3e8;
+        }
+        body {
+            background-color: #f5f2eb;
+            color: #333;
+            line-height: 1.7;
+        }
+        header {
+            background: linear-gradient(90deg, var(--dark-red), var(--red));
+            color: #fff;
+            padding: 18px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        header h1 {
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+        nav {
+            background-color: #fff;
+            box-shadow: 0 1px 4px #ccc;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+        .nav-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav a {
+            display: block;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        nav a:hover, nav a.active {
+            background-color: var(--red);
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            min-height: calc(100vh - 220px);
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .banner {
+            height: 360px;
+            background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://picsum.photos/id/1036/1200/360');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:white;
+            text-align:center;
+            margin-bottom:30px;
+        }
+        .banner h2 {
+            font-size:42px;
+            text-shadow: 0 2px 6px #000;
+        }
+        .card {
+            background:#fff;
+            padding:24px;
+            border-radius:10px;
+            box-shadow:0 3px 10px rgba(0,0,0,0.08);
+            margin-bottom:24px;
+        }
+        .card h3 {
+            color:var(--red);
+            margin-bottom:12px;
+            font-size:22px;
+            border-left:5px solid var(--red);
+            padding-left:12px;
+        }
+        .grid-2 {
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap:24px;
+        }
+        @media(max-width:768px){
+            .grid-2{grid-template-columns:1fr;}
+            .banner h2{font-size:26px;}
+        }
+        footer {
+            background:var(--dark-red);
+            color:#fff;
+            text-align:center;
+            padding:24px 0;
+            margin-top:40px;
+        }
+        .img-box{
+            width:100%;
+            height:240px;
+            background:#eee;
+            border-radius:6px;
+            overflow:hidden;
+            margin:12px 0;
+        }
+        .img-box img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+        .list-item{
+            padding:10px 0;
+            border-bottom:1px solid #eee;
+        }
+        textarea{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            min-height:120px;
+            margin:10px 0;
+        }
+        button{
+            padding:10px 24px;
+            background:var(--red);
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>红色安源 · 百年工运圣地</h1>
+    </header>
+    <nav>
+        <div class="nav-wrap">
+            <a href="#home" class="nav-link active" data-page="home">首页</a>
+            <a href="#intro" class="nav-link" data-page="intro">安源简介</a>
+            <a href="#history" class="nav-link" data-page="history">历史事件</a>
+            <a href="#people" class="nav-link" data-page="people">革命人物</a>
+            <a href="#strike" class="nav-link" data-page="strike">安源大罢工</a>
+            <a href="#sites" class="nav-link" data-page="sites">红色旧址</a>
+            <a href="#relics" class="nav-link" data-page="relics">红色文物</a>
+            <a href="#stories" class="nav-link" data-page="stories">红色故事</a>
+            <a href="#study" class="nav-link" data-page="study">研学活动</a>
+            <a href="#video" class="nav-link" data-page="video">红色影像</a>
+            <a href="#message" class="nav-link" data-page="message">留言寄语</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 1.首页 home -->
+        <div id="home" class="page active">
+            <div class="banner">
+                <h2>安源，中国工人运动的摇篮</h2>
+            </div>
+            <div class="card">
+                <h3>赓续红色血脉，传承安源精神</h3>
+                <p>安源，地处江西萍乡，是中国工人运动的重要策源地。在这里，无数革命先辈点燃革命火种，安源路矿工人大罢工载入中国革命史册。百年岁月流转，安源红色精神永远激励后人砥砺前行。</p>
+                <p>本站全方位展示安源红色历史、革命人物、旧址文物、红色故事，带领大家回望峥嵘岁月，感悟红色力量。</p>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>安源精神</h3>
+                    <p>敢为人先、义无反顾、团结奋斗、无私奉献。安源工人运动铸就的宝贵精神财富，是中华民族珍贵的红色基因。</p>
+                </div>
+                <div class="card">
+                    <h3>时代价值</h3>
+                    <p>回望安源百年工运历史，汲取奋进力量，弘扬革命传统，坚定理想信念，走好新时代的长征路。</p>
+                </div>
+            </div>
+        </div>
+
+        <!--2.安源简介 intro-->
+        <div id="intro" class="page">
+            <div class="card">
+                <h3>安源简介</h3>
+                <div class="img-box">
+                    <img src="https://picsum.photos/id/1035/1200/400" alt="安源风光">
+                </div>
+                <p>安源隶属于江西省萍乡市，安源煤矿是近代江南最大的煤矿。十九世纪末，帝国主义与封建势力压榨煤矿工人，工人受尽苦难。</p>
+                <p>二十世纪二十年代，中国共产党来到安源开展工人运动。安源成为全国最早开展工人运动的地区之一，被誉为“中国工人运动的摇篮”。安源不仅有辉煌的革命历史，同时拥有丰富的红色旅游资源，是全国著名红色教育基地。</p>
+            </div>
+        </div>
+
+        <!--3.历史事件 history-->
+        <div id="history" class="page">
+            <div class="card">
+                <h3>安源重要历史事件</h3>
+                <div class="list-item">1921年秋，毛泽东来到安源考察工人状况，点燃安源革命火种。</div>
+                <div class="list-item">1922年，安源路矿工人俱乐部正式成立，工人有了自己的组织。</div>
+                <div class="list-item">1922年9月，安源路矿工人大罢工爆发，取得重大胜利。</div>
+                <div class="list-item">1923年，安源工人运动蓬勃发展，建立党、团、工会组织。</div>
+                <div class="list-item">大革命时期，安源工人积极支援北伐战争，投身革命洪流。</div>
+                <div class="list-item">秋收起义爆发，安源工人参加起义，走上武装革命道路。</div>
+            </div>
+        </div>
+
+        <!--4.革命人物 people-->
+        <div id="people" class="page">
+            <div class="card">
+                <h3>安源革命先辈</h3>
+                <div class="list-item"><strong>毛泽东</strong>：多次来到安源，深入工人群众，指导安源工人运动。</div>
+                <div class="list-item"><strong>刘少奇</strong>：领导安源路矿工人大罢工，担任工人俱乐部主任。</div>
+                <div class="list-item"><strong>李立三</strong>：早期安源工人运动主要领导人，创办工人学校，建立工人俱乐部。</div>
+                <div class="list-item"><strong>朱少连</strong>：安源工人领袖，工人俱乐部重要负责人，投身革命斗争。</div>
+                <div class="list-item"><strong>黄静源</strong>：安源工人运动骨干，为革命事业英勇牺牲。</div>
+            </div>
+        </div>
+
+        <!--5.安源大罢工 strike-->
+        <div id="strike" class="page">
+            <div class="card">
+                <h3>安源路矿工人大罢工</h3>
+                <div class="img-box">
+                    <img src="https://picsum.photos/id/1048/1200/400" alt="安源大罢工">
+                </div>
+                <p>1922年9月14日，安源路矿一万七千多名工人举行大罢工。在刘少奇、李立三领导下，工人提出改善待遇、保障人权等合理诉求。</p>
+                <p>罢工斗争有理有节，团结广大工人，挫败资本家与军阀的镇压，最终罢工取得胜利。这是中国工人运动史上一次具有里程碑意义的斗争，充分展现工人阶级的力量。</p>
+                <p>安源大罢工，为全国工人运动树立榜样，也为中国革命积累宝贵斗争经验。</p>
+            </div>
+        </div>
+
+        <!--6.红色旧址 sites-->
+        <div id="sites" class="page">
+            <div class="card">
+                <h3>安源红色旧址</h3>
+                <div class="list-item"><strong>安源路矿工人运动纪念馆</strong>：全国重点红色纪念馆，记录安源百年工运历史。</div>
+                <div class="list-item"><strong>安源路矿工人俱乐部旧址</strong>：工人运动重要旧址，工人群众的革命阵地。</div>
+                <div class="list-item"><strong>总平巷旧址</strong>：安源煤矿井口，无数工人在这里劳作，见证苦难与抗争。</div>
+                <div class="list-item"><strong>毛泽东来安源旧址</strong>：毛泽东当年在安源居住、开展工作的旧址。</div>
+                <div class="list-item"><strong>安源工人补习学校旧址</strong>：培养工人革命思想的重要场所。</div>
+            </div>
+        </div>
+
+        <!--7.红色文物 relics-->
+        <div id="relics" class="page">
+            <div class="card">
+                <h3>珍贵红色文物</h3>
+                <div class="list-item"><strong>安源路矿工人俱乐部徽章</strong>：工人组织的象征。</div>
+                <div class="list-item"><strong>罢工宣言传单</strong>：当年罢工斗争印发的革命传单原件。</div>
+                <div class="list-item"><strong>工人补习学校课本</strong>：用来教育工人，传播革命思想。</div>
+                <div class="list-item"><strong>工人使用的工具、矿工服饰</strong>：见证旧时代矿工艰苦生活。</div>
+                <div class="list-item"><strong>革命书信手稿</strong>：革命先辈留下的珍贵手迹。</div>
+            </div>
+        </div>
+
+        <!--8.红色故事 stories-->
+        <div id="stories" class="page">
+            <div class="card">
+                <h3>安源红色小故事</h3>
+                <p><strong>故事一：毛泽东夜访矿工</strong></p>
+                <p>1921年秋，毛泽东来到安源，深入矿井，和矿工同吃同住，了解工人苦难。他向工人宣传革命道理，唤醒工人的觉悟，播下革命的火种。</p>
+                <br>
+                <p><strong>故事二：罢工中的刘少奇</strong></p>
+                <p>大罢工期间，刘少奇孤身前往矿局谈判，面对军阀威逼毫不畏惧，坚持工人正当权益，保护罢工工人，赢得全体工人爱戴。</p>
+                <br>
+                <p><strong>故事三：工人夜校的灯火</strong></p>
+                <p>安源开办工人补习学校，白天矿工下井劳作，夜晚来到学校读书识字，在学习中接受革命思想，许多普通矿工成长为革命战士。</p>
+            </div>
+        </div>
+
+        <!--9.研学活动 study-->
+        <div id="study" class="page">
+            <div class="card">
+                <h3>安源红色研学</h3>
+                <p>安源是重要爱国主义教育基地，开展红色研学，感悟革命历史。</p>
+                <ul style="padding-left:20px;margin-top:10px;">
+                    <li>参观安源路矿工人运动纪念馆，学习工运历史</li>
+                    <li>走访红色旧址，实地感悟革命岁月</li>
+                    <li>聆听红色宣讲，学习安源革命故事</li>
+                    <li>开展红色主题主题班会、红色朗诵、红色观影活动</li>
+                    <li>开展红色实践，重走革命路线，传承安源精神</li>
+                </ul>
+                <p>研学活动面向中小学生、机关单位、社会团体，是开展爱国主义教育的重要途径。</p>
+            </div>
+        </div>
+
+        <!--10.红色影像 video-->
+        <div id="video" class="page">
+            <div class="card">
+                <h3>红色影像资源</h3>
+                <p>观看红色影像，回望安源峥嵘岁月。</p>
+                <div class="img-box">
+                    <img src="https://picsum.photos/id/1060/1200/400" alt="红色影像">
+                </div>
+                <p>推荐影视纪录片：《安源路矿工人大罢工》《红色安源》《百年安源》。</p>
+                <p>可以通过纪录片，直观了解安源工人运动的历史背景、斗争过程，体会革命先辈不怕牺牲、敢于斗争的伟大精神。</p>
+            </div>
+        </div>
+
+        <!--11.留言寄语 message-->
+        <div id="message" class="page">
+            <div class="card">
+                <h3>红色寄语留言</h3>
+                <p>写下你的感悟，传承安源红色精神。</p>
+                <textarea placeholder="请写下你的红色感悟与寄语..."></textarea>
+                <button>提交留言</button>
+                <div style="margin-top:20px;">
+                    <h4>历史留言</h4>
+                    <div class="list-item">来自：张三｜铭记安源历史，珍惜当下幸福生活！</div>
+                    <div class="list-item">来自：李四｜学习安源精神，吾辈当自强！</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>红色安源专题网站 ©2026</p>
+        <p>姓名：龙建宇 &nbsp;&nbsp; 学号：231125168</p>
+        <p>弘扬安源工运精神，传承红色基因</p>
+    </footer>
+
+    <script>
+        // SPA页面切换
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        navLinks.forEach(link=>{
+            link.addEventListener('click',function(e){
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+                //清除全部active
+                navLinks.forEach(l=>l.classList.remove('active'));
+                pages.forEach(p=>p.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById(targetPage).classList.add('active');
+                window.scrollTo(0,0);
+            })
+        })
+    </script>
+</body>
+</html>
